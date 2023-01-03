@@ -1,0 +1,48 @@
+1669972039303	geckodriver	INFO	Listening on 127.0.0.1:57635
+1669972042380	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57636" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofilehBpDja"
+1669972042899	Marionette	INFO	Marionette enabled
+1669972042904	Marionette	INFO	Listening on port 57647
+Read port: 57647
+WebDriver BiDi listening on ws://127.0.0.1:57636
+1669972043013	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofilehBpDja\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57636/devtools/browser/92d64ecf-d233-4ff6-b6a2-0c385b5c82ba
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript warning: https://web-main-assets.myfitnesspal.com/_next/static/chunks/main-60c4c34036555ba5.js, line 1: unreachable code after return statement
+1669972053758	Marionette	INFO	Stopped listening on port 57647
+1669973839145	geckodriver	INFO	Listening on 127.0.0.1:55100
+1669973842206	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55101" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofilevozeYj"
+1669973842658	Marionette	INFO	Marionette enabled
+1669973842662	Marionette	INFO	Listening on port 55115
+Read port: 55115
+WebDriver BiDi listening on ws://127.0.0.1:55101
+1669973842757	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofilevozeYj\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55101/devtools/browser/3afa4568-4a29-4e7d-9019-b0a43d7ea938
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript warning: https://web-main-assets.myfitnesspal.com/_next/static/chunks/main-60c4c34036555ba5.js, line 1: unreachable code after return statement
+1669973853933	Marionette	INFO	Stopped listening on port 55115
+1669974045086	geckodriver	INFO	Listening on 127.0.0.1:55438
+1669974048153	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55439" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofileYZesOi"
+1669974048513	Marionette	INFO	Marionette enabled
+1669974048517	Marionette	INFO	Listening on port 55450
+WebDriver BiDi listening on ws://127.0.0.1:55439
+Read port: 55450
+1669974048737	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofileYZesOi\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55439/devtools/browser/320172db-13e8-4d91-9861-867ab27a0177
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript warning: https://web-main-assets.myfitnesspal.com/_next/static/chunks/main-60c4c34036555ba5.js, line 1: unreachable code after return statement
+1669974057774	Marionette	INFO	Stopped listening on port 55450
+1669993350839	geckodriver	INFO	Listening on 127.0.0.1:60516
+1669993353906	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60517" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofilesWUf9C"
+1669993354466	Marionette	INFO	Marionette enabled
+1669993354471	Marionette	INFO	Listening on port 60528
+WebDriver BiDi listening on ws://127.0.0.1:60517
+Read port: 60528
+1669993354725	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\serge\\AppData\\Local\\Temp\\rust_mozprofilesWUf9C\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60517/devtools/browser/8eca75dd-c6ff-4410-84f9-a65df3c42dcd
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript warning: https://web-main-assets.myfitnesspal.com/_next/static/chunks/main-60c4c34036555ba5.js, line 1: unreachable code after return statement
+1669993365152	Marionette	INFO	Stopped listening on port 60528

@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding="utf-8"?>
+    <!--Here is the data for test configuration like:
+    Browser, URL, filepath, etc.-->
+
+<Environment>
+    <!--General-->
+    <WaitTime>2</WaitTime>
+    <ScreenshotPath>D:\pyCharm\InfrastructureSample\Allure-Screenshots\</ScreenshotPath>
+
+    <!--WEB-->
+    <Browser>CHROME</Browser>
+    <URL>https://www.google.com/</URL>
+    <CSVLocation>D:\\pyCharm\\InfrastructureSample\\DDTesting\\data.csv</CSVLocation>
+
+
+    <!--DataBase TODO: after testing remove-->
+    <!--MySQL-->
+    <DbHost>MYSQL8001.site4now.net</DbHost>
+    <DbName>db_a85ca8_anfiska</DbName>
+    <DbUser>a85ca8_anfiska</DbUser>
+    <DbPassword>Anfisk@1980</DbPassword>
+    <!--PyMongo-->
+    <DbURLwithPass>mongodb+srv://sergeicher:123@cluster0.2ptf1dp.mongodb.net/?retryWrites=true&amp;w=majority</DbURLwithPass>
+    <MonDbName>MyDatabase</MonDbName>
+    <colName>customers</colName>
+</Environment>
