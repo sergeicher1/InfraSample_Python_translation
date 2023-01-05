@@ -32,14 +32,14 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from Extensions.ExternalFiles.XmlExFiles import XML
-from Utilities.EventListeners import EventListener
-from Utilities.ManagePages import ManagePages
+from Extensions.external_files import XML
+from Utilities.event_listeners import EventListener
+from Utilities.manage_pages import ManagePages
 
 '''Objects Initialization'''
 driver = None
 action = None
-dbConnector = None
+db_connector = None
 
 '''Path to data.xml'''
 dataPath = "D:\\pyCharm\\InfrastructureSample\\Configuration\\data.xml"
@@ -50,8 +50,8 @@ dataPath = "D:\\pyCharm\\InfrastructureSample\\Configuration\\data.xml"
 @pytest.fixture(scope="class")
 def InitWebDriver(request):
     # global driver  See if needed
-    edriver = GetWebDriver()
-    globals()["driver"] = EventFiringWebDriver(edriver, EventListener())
+    e_driver = GetWebDriver()
+    globals()["driver"] = EventFiringWebDriver(e_driver, EventListener())
     driver = globals()["driver"]
     driver.maximize_window()
     driver.implicitly_wait(int(XML.ReadData(dataPath, "WaitTime")))
@@ -83,18 +83,18 @@ def GetWebDriver():
 
 
 def GetChrome():
-    chromeDriver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    return chromeDriver
+    chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    return chrome_driver
 
 
 def GetFirefox():
-    ffDriver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-    return ffDriver
+    ff_driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+    return ff_driver
 
 
 def GetEdge():
-    edgeDriver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
-    return edgeDriver
+    edge_driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
+    return edge_driver
 
 
 ########################################################################################################
@@ -105,17 +105,17 @@ def GetEdge():
 # MySQL
 @pytest.fixture(scope="class")
 def InitMySqlDBConnection(request):  # Open session
-    dbConnector = mysql.connector.connect(
+    db_connector = mysql.connector.connect(
         host=XML.ReadData(dataPath, "DbHost"),
         database=XML.ReadData(dataPath, "DbName"),
         user=XML.ReadData(dataPath, "DbUser"),
         password=XML.ReadData(dataPath, "DbPassword")
     )
-    globals()["dbConnector"] = dbConnector
-    request.cls.dbConnector = dbConnector
+    globals()["dbConnector"] = db_connector
+    request.cls.dbConnector = db_connector
 
     yield
-    dbConnector.close()  # Close session
+    db_connector.close()  # Close session
 
 
 ########################################################################################################

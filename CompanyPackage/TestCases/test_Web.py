@@ -35,14 +35,14 @@
 #                           allure serve allure-results
 # ------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------
-
-
+import allure
 import pytest
-from CompanyPackage.WorkFlows.Webflows import *
-from Extensions.ExternalFiles.CSVExFiles import CSV
-from Extensions.ExternalFiles.XmlExFiles import XML
-from Extensions.SqlMethods import *
-from Extensions.Verifications import Verifications
+
+from CompanyPackage.WorkFlows.web_flows import WebFlows
+from Extensions.external_files import CSV, XML
+from Extensions.verifications import Verifications
+from Utilities import manage_pages
+
 
 '''Path to data.xml'''
 dataPath = "D:\\pyCharm\\InfrastructureSample\\Configuration\\data.xml"
@@ -64,21 +64,21 @@ class Test_Web:
     @allure.description("This test verifies the login flow")
     def test_TC01LoginFlow(self):
         WebFlows.LoginFlow("Sergeicher87@gmail.com", "Qq1@34567890")
-        Verifications.VerifyEquals(actual=ManagePages.homePage.GetHeader().text, expected="Your Daily Summary1")
+        Verifications.VerifyEquals(actual=manage_pages.home_page.GetHeader().text, expected="Your Daily Summary1")
 
     # @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 02: Invalid Login Flow")
     @allure.description("This test verifies Invalid Login flows")
     def test_TC02InvalidLoginFlows(self):
         WebFlows.LoginFlow("ser.cher.com", "12313123")
-        Verifications.VerifyEquals(actual=ManagePages.loginPage.GetIncorrectMsg().text,
+        Verifications.VerifyEquals(actual=manage_pages.login_page.GetIncorrectMsg().text,
                                    expected="Incorrect username or password. Please try again.")
 
     # @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 03: Verify Elements in Navigation Bar and check them working")
     @allure.description("This test verifies presence of elements in Navigation Bar and if they work")
     def test_TC03NavBarChecking(self):
-        WebFlows.VerifyNavBarElems()
+        WebFlows.VerifyNavBarElements()
 
     # @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 04: Verify adding comments")

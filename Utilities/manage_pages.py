@@ -21,15 +21,15 @@
 #         globals()["mainPage"] = MainPage(conftest.driver)
 # ------------------------------------------------------------------------------------------------
 
-from CompanyPackage.PageObjects.HomePage import HomePage
-from CompanyPackage.PageObjects.LoginPage import LoginPage
-from CompanyPackage.PageObjects.MainPage import MainPage
+from CompanyPackage.PageObjects.home_page import HomePage
+from CompanyPackage.PageObjects.login_page import LoginPage
+from CompanyPackage.PageObjects.main_page import MainPage
 from CompanyPackage.TestCases import conftest
 
 '''Web Objects'''
-mainPage = None
-loginPage = None
-homePage = None
+main_page = None
+login_page = None
+home_page = None
 
 
 # upperMenuBar = None
@@ -40,6 +40,6 @@ class ManagePages:
     # Initialization of web objects
     @staticmethod
     def InitWebPages():
-        globals()["mainPage"] = MainPage(conftest.driver)
-        globals()["loginPage"] = LoginPage(conftest.driver)
-        globals()["homePage"] = HomePage(conftest.driver)
+        globals()["main_page"] = MainPage(conftest.driver)
+        globals()["login_page"] = LoginPage(conftest.driver)
+        globals()["home_page"] = HomePage(conftest.driver)

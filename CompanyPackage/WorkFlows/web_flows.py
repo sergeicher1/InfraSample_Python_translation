@@ -27,11 +27,13 @@
 # ------------------------------------------------------------------------------------------------
 
 
-from Extensions.WebDriverMethods import *
-from Extensions.UIActioins import UiActions
-from Extensions.Verifications import Verifications
-from Utilities import ManagePages
-from Utilities.CommonOps import *
+from Extensions.webdriver import *
+from Extensions.ui_actions import UiActions
+from Extensions.verifications import Verifications
+from Utilities import manage_pages
+
+
+# from Utilities.CommonOps import *
 
 
 class WebFlows:
@@ -40,9 +42,9 @@ class WebFlows:
     @staticmethod
     @allure.step("Accept cookies")
     def AcceptCookies():
-        iFrame = ManagePages.mainPage.GetIFrame()
-        conftest.driver.switch_to.frame(iFrame)
-        UiActions.Click(ManagePages.mainPage.GetAcceptBtn())
+        i_frame = manage_pages.main_page.GetIFrame()
+        conftest.driver.switch_to.frame(i_frame)
+        UiActions.Click(manage_pages.main_page.GetAcceptBtn())
         conftest.driver.switch_to.default_content()
 
     # Business Flows
@@ -50,29 +52,29 @@ class WebFlows:
     @staticmethod
     @allure.step("Login flow")
     def LoginFlow(email: str, password: str):
-        WD.NavigateToPage("https://www.myfitnesspal.com/")
+        WebDriver.NavigateToPage("https://www.myfitnesspal.com/")
         WebFlows.AcceptCookies()
-        UiActions.Click(ManagePages.mainPage.GetLoginLink())
-        UiActions.Clear(ManagePages.loginPage.GetEmailField())
-        UiActions.UpdateText(ManagePages.loginPage.GetEmailField(), email)
-        UiActions.Clear(ManagePages.loginPage.GetPasswordField())
-        UiActions.UpdateText(ManagePages.loginPage.GetPasswordField(), password)
-        UiActions.Click(ManagePages.loginPage.GetLoginBtn())
+        UiActions.Click(manage_pages.main_page.GetLoginLink())
+        UiActions.Clear(manage_pages.login_page.GetEmailField())
+        UiActions.UpdateText(manage_pages.login_page.GetEmailField(), email)
+        UiActions.Clear(manage_pages.login_page.GetPasswordField())
+        UiActions.UpdateText(manage_pages.login_page.GetPasswordField(), password)
+        UiActions.Click(manage_pages.login_page.GetLoginBtn())
         sleep(10)
 
     @staticmethod
     @allure.step("Verify Navigation Bar Elements")
-    def VerifyNavBarElems():
-        Verifications.SmartAssert(ManagePages.homePage.GetNavBarElems())
+    def VerifyNavBarElements():
+        Verifications.SmartAssert(manage_pages.home_page.GetNavBarElems())
 
     @staticmethod
     @allure.step("Verify adding comments - Data Driven Test")
     def AddCommentsAndVerify(value: str):
-        # ScrollDown(0, 400) # Use if there will be a problem with ads showing
-        UiActions.Clear(ManagePages.homePage.GetNewsInput())
-        UiActions.UpdateText(ManagePages.homePage.GetNewsInput(), value)
-        UiActions.Click(ManagePages.homePage.GetShareBtn())
+        WebDriver.ScrollDown(0, 400)  # Use if there will be a problem with ads showing
+        UiActions.Clear(manage_pages.home_page.GetNewsInput())
+        UiActions.UpdateText(manage_pages.home_page.GetNewsInput(), value)
+        UiActions.Click(manage_pages.home_page.GetShareBtn())
         sleep(0.5)
-        actual = ManagePages.homePage.GetLastComment().text
+        actual = manage_pages.home_page.GetLastComment().text
         expected = str(value)
         Verifications.VerifyEquals(actual=actual, expected=expected)

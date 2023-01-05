@@ -13,17 +13,30 @@
 # Usage Example
 # For fast testing features before implementing a complex usage in infrastructure
 # ------------------------------------------------------------------------------------------------
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from time import *
 
 # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-from Extensions.ExternalFiles.CSVExFiles import CSV
-from Extensions.ExternalFiles.TxtExFiles import Text
-from Extensions.ExternalFiles.DocxExFiles import Docx
-from Extensions.ExternalFiles.PdfExFiles import PDF
-from Extensions.ExternalFiles.XlExFiles import Excel
-from Extensions.MongoDBMethods import MongoDB
-from Extensions.SqlMethods import SQL
-from Extensions.WebDriverMethods import WD
-
 if __name__ == '__main__':
     pass
+    # driver.get("https://www.google.co.il/")
+    # driver.set_window_position(150, 100)
+    # driver.set_window_size(1600, 900)
+    # print(driver.title)
+    # print(driver.page_source)
+    # fileName = input("Please enter file name: \n")
+    # first = input("Please enter first variable name: \n")
+    # resF = input("Please enter value: \n")
+    # second = input("Please enter second variable name: \n")
+    # resS = input("Please enter value: \n")
+    # res = input("Please enter third variable name: \n")
+    # resR = input("Please specify the desired function: ")
+    # with open(f"D:\\pyCharm\\InfrastructureSample\\{fileName}.py", "a") as test:
+    #     test.writelines(
+    #         f"{first} = {resF}\n" +
+    #         f"{second} = {resS}\n" +
+    #         f"{res} = {first} {resR} {second}\n" +
+    #         f"print(\"The third variable is: \", res)")

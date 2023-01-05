@@ -19,11 +19,11 @@ import allure
 from time import sleep
 from typing import Dict
 from selenium.webdriver.remote.webelement import WebElement
-from Extensions.UIActioins import UiActions
+from Extensions.ui_actions import UiActions
 from Utilities.CommonOps import *
 
 
-class WD:
+class WebDriver:
     """Browser Interactions"""
 
     # You can read the current page title from the browser

@@ -20,8 +20,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import xml.etree.ElementTree as ET
 import CompanyPackage.TestCases.conftest as conftest
-from Extensions.ExternalFiles.XmlExFiles import XML
-
+# TODO: see if needed
 '''Function to Explicitly Wait for elements'''
 #
 #
