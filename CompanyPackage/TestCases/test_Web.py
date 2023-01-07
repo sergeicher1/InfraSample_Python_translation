@@ -29,23 +29,25 @@
 # change URL and SCREEN-PATH  in data.xml
 # To RUN all available tests and save the allure report "up 2 folders" in main directory
 # In terminal -> navigate to "TestCases" directory and RUN:
-#                           pytest -s -v --alluredir ./../allure-results
+#                           pytest -s -v --alluredir ./allure-results
+# This will save the allure report in main directory
 # To generate local server with allure report
 # In terminal -> navigate to main directory and RUN:
 #                           allure serve allure-results
 # ------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------
+
+
 import allure
 import pytest
 
 from CompanyPackage.WorkFlows.web_flows import WebFlows
-from Extensions.external_files import CSV, XML
+from Extensions.external_files import *
 from Extensions.verifications import Verifications
 from Utilities import manage_pages
 
-
 '''Path to data.xml'''
-dataPath = "D:\\pyCharm\\InfrastructureSample\\Configuration\\data.xml"
+dataPath = "./../../Configuration/data.xml"
 
 # list of data for data driven testing
 data = CSV.ReadAll(XML.ReadData(dataPath, "CSVLocation"))
@@ -66,7 +68,7 @@ class Test_Web:
         WebFlows.LoginFlow("Sergeicher87@gmail.com", "Qq1@34567890")
         Verifications.VerifyEquals(actual=manage_pages.home_page.GetHeader().text, expected="Your Daily Summary1")
 
-    # @pytest.mark.skip("Skipped to save time")
+    @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 02: Invalid Login Flow")
     @allure.description("This test verifies Invalid Login flows")
     def test_TC02InvalidLoginFlows(self):
@@ -74,7 +76,7 @@ class Test_Web:
         Verifications.VerifyEquals(actual=manage_pages.login_page.GetIncorrectMsg().text,
                                    expected="Incorrect username or password. Please try again.")
 
-    # @pytest.mark.skip("Skipped to save time")
+    @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 03: Verify Elements in Navigation Bar and check them working")
     @allure.description("This test verifies presence of elements in Navigation Bar and if they work")
     def test_TC03NavBarChecking(self):

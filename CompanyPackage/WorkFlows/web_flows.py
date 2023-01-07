@@ -26,7 +26,7 @@
 #         UiActions.Click(ManagePages.loginPage.GetLoginBtn())
 # ------------------------------------------------------------------------------------------------
 
-
+from CompanyPackage.TestCases import conftest
 from Extensions.webdriver import *
 from Extensions.ui_actions import UiActions
 from Extensions.verifications import Verifications

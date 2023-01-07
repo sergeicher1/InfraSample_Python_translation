@@ -19,8 +19,10 @@ import allure
 from time import sleep
 from typing import Dict
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.wait import WebDriverWait
+import selenium.webdriver.support.expected_conditions as ec
+from CompanyPackage.TestCases import conftest
 from Extensions.ui_actions import UiActions
-from Utilities.CommonOps import *
 
 
 class WebDriver:
@@ -83,7 +85,7 @@ class WebDriver:
     @allure.step("Accept Alert")
     def AcceptAlert(elem: WebElement):  # Element that opens an ALERT
         UiActions.Click(elem)
-        WebDriverWait(conftest.driver, 10).until(EC.alert_is_present())
+        WebDriverWait(conftest.driver, 10).until(ec.alert_is_present())
         alert = conftest.driver.switch_to.alert
         alert.accept()
 
@@ -92,7 +94,7 @@ class WebDriver:
     @allure.step("Confirm Alert -> Dismiss")
     def ConfirmAlert(elem: WebElement):  # Element that opens an ALERT
         UiActions.Click(elem)
-        WebDriverWait(conftest.driver, 10).until(EC.alert_is_present())
+        WebDriverWait(conftest.driver, 10).until(ec.alert_is_present())
         alert = conftest.driver.switch_to.alert
         alert.dismiss()
 
@@ -102,7 +104,7 @@ class WebDriver:
     @allure.step("Prompt Alert -> Include text input")
     def PromptAlert(elem: WebElement, text: str):  # Element that opens an ALERT, text to enter
         UiActions.Click(elem)
-        WebDriverWait(conftest.driver, 10).until(EC.alert_is_present())
+        WebDriverWait(conftest.driver, 10).until(ec.alert_is_present())
         alert = conftest.driver.switch_to.alert
         alert.send_keys(text)
         sleep(3)

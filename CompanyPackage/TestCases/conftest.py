@@ -42,14 +42,14 @@ action = None
 db_connector = None
 
 '''Path to data.xml'''
-dataPath = "D:\\pyCharm\\InfrastructureSample\\Configuration\\data.xml"
+dataPath = "./../../Configuration/data.xml"
 
 '''WebDriver Initialization'''
 
 
 @pytest.fixture(scope="class")
 def InitWebDriver(request):
-    # global driver  See if needed
+    global driver
     e_driver = GetWebDriver()
     globals()["driver"] = EventFiringWebDriver(e_driver, EventListener())
     driver = globals()["driver"]
@@ -66,6 +66,7 @@ def InitWebDriver(request):
 
 # Checks which browser is requested for execution
 def GetWebDriver():
+    global driver
     browser = XML.ReadData(dataPath, "Browser")
     if browser.lower() == "chrome":
         driver = GetChrome()
@@ -75,7 +76,7 @@ def GetWebDriver():
         driver = GetEdge()
     else:
         driver = None
-        raise Exception("Wrong Input for browser, check configuration in data.xml file!")
+        raise Exception("Wrong Input for browser, check configuration in ./../../Configuration/data.xml file!")
     return driver
 
 
@@ -105,6 +106,7 @@ def GetEdge():
 # MySQL
 @pytest.fixture(scope="class")
 def InitMySqlDBConnection(request):  # Open session
+    global db_connector
     db_connector = mysql.connector.connect(
         host=XML.ReadData(dataPath, "DbHost"),
         database=XML.ReadData(dataPath, "DbName"),
@@ -126,7 +128,7 @@ def InitMySqlDBConnection(request):  # Open session
 
 # This is exception for API test
 # If it is None -> Screenshot will not be captured, because no browser is opened!
-def pytest_exception_interact(node, call, report):  # TODO: see if remove node and call
+def pytest_exception_interact(report):  # TODO: see if remove node and call
     if report.failed:
         if globals()["driver"] is not None:
             d = datetime.now()
