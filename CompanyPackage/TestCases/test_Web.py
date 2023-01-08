@@ -66,7 +66,7 @@ class Test_Web:
     @allure.description("This test verifies the login flow")
     def test_TC01LoginFlow(self):
         WebFlows.LoginFlow("Sergeicher87@gmail.com", "Qq1@34567890")
-        Verifications.VerifyEquals(actual=manage_pages.home_page.GetHeader().text, expected="Your Daily Summary1")
+        Verifications.VerifyEquals(actual=manage_pages.home_page.GetHeader().text, expected="Your Daily Summary")
 
     @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 02: Invalid Login Flow")
