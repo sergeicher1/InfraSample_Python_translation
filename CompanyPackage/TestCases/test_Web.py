@@ -51,10 +51,10 @@ dataPath = "./../../Configuration/data.xml"
 
 # list of data for data driven testing
 data = CSV.ReadAll(XML.ReadData(dataPath, "CSVLocation"))
-testData = []  # Generic testData -> rows and cols from csv file
+test_data = []  # Generic testData -> rows and cols from csv file
 for i in data:
     for j in i:
-        testData.append(j)
+        test_data.append(j)
 
 
 @pytest.mark.usefixtures("InitWebDriver")  # Uncomment for UI testing with browser
@@ -85,6 +85,6 @@ class Test_Web:
     # @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 04: Verify adding comments")
     @allure.description("This test adds comments and verifies them")
-    @pytest.mark.parametrize("value", testData)
+    @pytest.mark.parametrize("value", test_data)
     def test_TC04AddCommentsAndVerify(self, value):
         WebFlows.AddCommentsAndVerify(value=value)
