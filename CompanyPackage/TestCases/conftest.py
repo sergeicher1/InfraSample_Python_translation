@@ -35,18 +35,25 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from Extensions.external_files import XML
 from Utilities.event_listeners import EventListener
 from Utilities.manage_pages import ManagePages
+from selenium.webdriver.chrome.options import Options
 
 '''Objects Initialization'''
+
 driver = None
 action = None
 db_connector = None
 
 '''Path to data.xml'''
+
 dataPath = "./../../Configuration/data.xml"
+
+'''Reading Web options'''
+headless = XML.ReadData(dataPath, "Headless")
 
 '''WebDriver Initialization'''
 
 
+# Browser with UI
 @pytest.fixture(scope="class")
 def InitWebDriver(request):
     global driver
@@ -84,12 +91,28 @@ def GetWebDriver():
 
 
 def GetChrome():
-    chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    if headless.lower() == "yes":
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    elif headless.lower() == "no":
+        chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    else:
+        raise Exception("Wrong Input for options, check configuration in ./../../Configuration/data.xml file!")
+
     return chrome_driver
 
 
 def GetFirefox():
-    ff_driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+    if headless.lower() == "yes":
+        firefox_options = webdriver.FirefoxOptions()
+        firefox_options.headless = True
+        ff_driver = webdriver.Firefox(options=firefox_options, service=FirefoxService(GeckoDriverManager().install()))
+    elif headless.lower() == "no":
+        ff_driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+    else:
+        raise Exception("Wrong Input for options, check configuration in ./../../Configuration/data.xml file!")
+
     return ff_driver
 
 

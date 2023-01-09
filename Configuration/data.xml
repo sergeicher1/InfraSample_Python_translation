@@ -9,9 +9,12 @@ Browser, URL, filepath, etc.-->
     <CSVLocation>./../../DDTesting/data.csv</CSVLocation> <!--can be changed, the folder must exist-->
 
 
-    <!--WEB-->
-    <Browser>CHROME</Browser> <!--The browser selection-->
+    <!--Web-->
     <URL>https://www.google.com/</URL> <!--Base URL-->
+    <Browser>firefox</Browser> <!--The browser selection-->
+
+    <!--Web options-->
+    <Headless>YES</Headless> <!--Execute test with UI -> NO, headless -> YES-->
 
 
     <!--DataBase TODO: after testing REMOVE-->
