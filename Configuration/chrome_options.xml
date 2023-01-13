@@ -1,0 +1,66 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<!--Chrome options
+ Use example:
+        Uncomment options you want to use
+        Full list of options could be found here: https://peter.sh/experiments/chromium-command-line-switches/ -->
+
+<Environment>
+    <!--Common use options-->
+
+<!--    <BrowserGuestSession>&#45;&#45;bwsi</BrowserGuestSession>-->
+<!--    <DarkModeSettings>&#45;&#45;dark-mode-settings</DarkModeSettings>-->
+<!--    <ForceNightMode>&#45;&#45;force-enable-night-mode</ForceNightMode>-->
+<!--    <ForceHeadlessForTest>&#45;&#45;force-headless-for-tests</ForceHeadlessForTest>-->
+<!--    <Headless>&#45;&#45;headless</Headless>-->
+<!--    <HideScrollbars>&#45;&#45;hide-scrollbars</HideScrollbars>-->
+<!--    <HomePage>&#45;&#45;homepage</HomePage>-->
+    <Incognito>--incognito</Incognito>
+<!--    <InfoBars>&#45;&#45;disable-infobars</InfoBars>-->
+<!--    <NewWindow>&#45;&#45;new-window</NewWindow>-->
+<!--    <SavePageToPDF>&#45;&#45;print-to-pdf</SavePageToPDF>-->
+<!--    <SavePageToPDFNoFooterNoHeader>&#45;&#45;print-to-pdf-no-header</SavePageToPDFNoFooterNoHeader>-->
+<!--    <Screenshot>&#45;&#45;screenshot</Screenshot>-->
+<!--    <SmoothScrolling>&#45;&#45;disable-smooth-scrolling</SmoothScrolling>-->
+<!--    <StartFullScreen>&#45;&#45;start-fullscreen</StartFullScreen>-->
+<!--    <StartInIncognito>&#45;&#45;start-in-incognito</StartInIncognito>-->
+    <StartMaximized>--start-maximized</StartMaximized>
+<!--    <WindowPosition>&#45;&#45;window-position</WindowPosition>-->
+<!--    <WindowSize>&#45;&#45;window-size</WindowSize>-->
+<!--    <VirtualKeyboard>&#45;&#45;enable-virtual-keyboard</VirtualKeyboard>-->
+
+
+    <!--Available options(not tested by me)-->
+<!--    <AcceptThisTabCapture>auto-accept-this-tab-capture</AcceptThisTabCapture>-->
+<!--    <AnimatedImageResume>&#45;&#45;animated-image-resume</AnimatedImageResume>-->
+<!--    <Automation>&#45;&#45;enable-automation</Automation>-->
+<!--    <BrowserStartupDialog>&#45;&#45;browser-startup-dialog</BrowserStartupDialog>-->
+<!--    <BrowserTest>&#45;&#45;browser-test</BrowserTest>-->
+<!--    <CastAppBackColor>&#45;&#45;cast-app-background-color</CastAppBackColor>-->
+<!--    <DebugDevTools>&#45;&#45;debug-devtools</DebugDevTools>-->
+<!--    <DefaultBackColor>&#45;&#45;default-background-color</DefaultBackColor>-->
+<!--    <DefaultBrowserCheck>&#45;&#45;no-default-browser-check</DefaultBrowserCheck>-->
+<!--    <DisableDatabases>&#45;&#45;disable-databases</DisableDatabases>-->
+<!--    <Features>&#45;&#45;enable-features</Features>-->
+<!--    <HttpBackGroundPage>&#45;&#45;allow-http-bac</HttpBackGroundPage>kground-page-->
+<!--    <HttpScreenCapture>&#45;&#45;allow-http-screen-capture</HttpScreenCapture>-->
+<!--    <InitialScreenSize>&#45;&#45;cast-initial-screen-width</InitialScreenSize>-->
+<!--    <InsecureLocalHost>&#45;&#45;allow-insecure-localhost</InsecureLocalHost>-->
+<!--    <ListedExtenstionId>&#45;&#45;allowlisted-extension-id</ListedExtenstionId>-->
+<!--    <NoSandBox>&#45;&#45;allow-no-sandbox-job</NoSandBox>-->
+<!--    <SandBoxDebugging>&#45;&#45;allow-sandbox-debugging</SandBoxDebugging>-->
+<!--    <SilentPush>&#45;&#45;allow-silent-push</SilentPush>-->
+<!--    <OsInstall>&#45;&#45;allow-os-install</OsInstall>-->
+<!--    <OverrideLanguageDetections>&#45;&#45;override-language-detection</OverrideLanguageDetections>-->
+<!--    <OpenDevToolsForTabs>&#45;&#45;auto-open-devtools-for-tabs</OpenDevToolsForTabs>-->
+<!--    <PreCommitInput>&#45;&#45;allow-pre-commit-input</PreCommitInput>-->
+<!--    <RaInDevMode>&#45;&#45;allow-ra-in-dev-mode</RaInDevMode>-->
+<!--    <RejectThisTabCapture>&#45;&#45;auto-reject-this-tab-capture</RejectThisTabCapture>-->
+<!--    <RunningInsecureContent>&#45;&#45;allow-running-insecure-content</RunningInsecureContent>-->
+<!--    <SelectDesktopCaptureSource>&#45;&#45;auto-select-desktop-capture-source</SelectDesktopCaptureSource>-->
+<!--    <SelectTabCaptureSourceByTitle>&#45;&#45;auto-select-tab-capture-source-by-title</SelectTabCaptureSourceByTitle>-->
+<!--    <ThirdPartyModules>&#45;&#45;allow-third-party-modules</ThirdPartyModules>-->
+<!--    <UnsecureDlls>&#45;&#45;allow-unsecure-dlls</UnsecureDlls>-->
+<!--    <UpdateInterval>&#45;&#45;check-for-update-interva</UpdateInterval>-->
+
+
+</Environment>

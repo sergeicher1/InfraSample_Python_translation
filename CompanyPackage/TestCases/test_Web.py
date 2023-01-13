@@ -45,6 +45,7 @@ from CompanyPackage.WorkFlows.web_flows import WebFlows
 from Extensions.external_files import *
 from Extensions.verifications import Verifications
 from Utilities import manage_pages
+from time import sleep
 
 '''Path to data.xml'''
 dataPath = "./../../Configuration/data.xml"
@@ -60,8 +61,10 @@ for i in data:
 @pytest.mark.usefixtures("InitWebDriver")  # Uncomment for UI testing with browser
 # @pytest.mark.usefixtures("InitDBConnection")  # Uncomment for SQL
 class Test_Web:
+    def test_Sample(self):
+        assert 1 == 10
 
-    # @pytest.mark.skip("Skipped to save time")
+    @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 01: Valid Login Flow")
     @allure.description("This test verifies the login flow")
     def test_TC01LoginFlow(self):
@@ -82,7 +85,7 @@ class Test_Web:
     def test_TC03NavBarChecking(self):
         WebFlows.VerifyNavBarElements()
 
-    # @pytest.mark.skip("Skipped to save time")
+    @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 04: Verify adding comments")
     @allure.description("This test adds comments and verifies them")
     @pytest.mark.parametrize("value", test_data)

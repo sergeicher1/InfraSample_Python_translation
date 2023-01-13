@@ -22,6 +22,7 @@
 import allure
 import pytest
 import mysql.connector
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 from selenium import webdriver
@@ -43,12 +44,10 @@ driver = None
 action = None
 db_connector = None
 
-'''Path to data.xml'''
+'''Paths to XML configurations'''
 
 dataPath = "./../../Configuration/data.xml"
-
-'''Reading Web options'''
-headless = XML.ReadData(dataPath, "Headless")
+options_path = "./../../Configuration/chrome_options.xml"
 
 '''WebDriver Initialization'''
 
@@ -60,7 +59,6 @@ def InitWebDriver(request):
     e_driver = GetWebDriver()
     globals()["driver"] = EventFiringWebDriver(e_driver, EventListener())
     driver = globals()["driver"]
-    driver.maximize_window()
     driver.implicitly_wait(int(XML.ReadData(dataPath, "WaitTime")))
     driver.get(XML.ReadData(dataPath, "URL"))
     request.cls.driver = driver
@@ -91,33 +89,56 @@ def GetWebDriver():
 
 
 def GetChrome():
-    if headless.lower() == "yes":
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
+    # Reading Web options
+    options_check = XML.ReadData(dataPath, "ChromeOptions")
+    chrome_options = Options()
+    if options_check.lower() == "enabled":
+        xml_tree = ET.parse(options_path)
+        elem_list = []
+        for elem in xml_tree.iter():
+            elem_list.append(elem.tag)
+        args = []
+        for tag in elem_list[1:]:
+            args.append(XML.ReadData(options_path, tag))
+        for arg in args:
+            if arg is None:
+                continue
+            else:
+                chrome_options.add_argument(arg)
         chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    elif headless.lower() == "no":
-        chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    elif options_check.lower() == "disabled":  # will open maximized window as default
+        chrome_options.add_argument("--start-maximized")
+        chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     else:
         raise Exception("Wrong Input for options, check configuration in ./../../Configuration/data.xml file!")
-
+    print("Used chrome driver")
     return chrome_driver
 
 
-def GetFirefox():
-    if headless.lower() == "yes":
-        firefox_options = webdriver.FirefoxOptions()
-        firefox_options.headless = True
-        ff_driver = webdriver.Firefox(options=firefox_options, service=FirefoxService(GeckoDriverManager().install()))
-    elif headless.lower() == "no":
-        ff_driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-    else:
-        raise Exception("Wrong Input for options, check configuration in ./../../Configuration/data.xml file!")
+############################################################################################################
 
+
+############################################################################################################
+def GetFirefox():
+    firefox_options = webdriver.FirefoxOptions()
+    # Not all options of chrome work in firefox -> most common implemented here
+    # Usage Example -> uncomment what you need
+    # firefox_options.add_argument("--headless")
+    ff_driver = webdriver.Firefox(options=firefox_options, service=FirefoxService(GeckoDriverManager().install()))
+    ff_driver.maximize_window()
+    print("Used firefox driver")
     return ff_driver
 
 
 def GetEdge():
-    edge_driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
+    edge_options = webdriver.EdgeOptions()
+    # Not all options of chrome work in MS Edge -> most common implemented here
+    # Usage Example -> uncomment what you need
+    # edge_options.add_argument("--headless")
+    edge_options.add_argument("--start-maximized")
+    edge_driver = webdriver.Edge(options=edge_options, service=EdgeService(EdgeChromiumDriverManager().install()))
+    # edge_driver.maximize_window()
+    print("Used MS Edge driver")
     return edge_driver
 
 
