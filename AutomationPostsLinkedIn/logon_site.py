@@ -9,23 +9,15 @@
 # -- Version                                  | 3.11
 # -- WebDriver                                | Selenium
 # -- Version                                  | 4.6.0
-# -- Description                              | # This is a sample Python script for testing #
-# Usage Example
-# For fast testing features before implementing a complex usage in infrastructure
+# -- Description                              | # Automatically sends CV #
 # ------------------------------------------------------------------------------------------------
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
 from time import *
-import xml.etree.ElementTree as ET
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.options import Options
-
-from Extensions.external_files import XML
-from Extensions.webdriver import WebDriver
 
 chrome_options = Options()
 chrome_options.add_argument("--incognito")
@@ -35,7 +27,6 @@ driver = webdriver.Chrome(options=chrome_options, service=ChromeService(ChromeDr
 action = ActionChains(driver)
 
 
-# TODO:  make automation on CV runner: https://www.jobkarov.com/CV/Send-Resume/
 def OpenAndSearch():
     driver.get("https://b.log-on.com/")
     driver.implicitly_wait(10)
@@ -59,14 +50,14 @@ def OpenAndSearch():
 def ShowAllPositions():
     # After search - open all positions
     # Scrolling should be... to focus on the element
-    el1 = driver.find_element(By.XPATH, "//button[@rel='next']").location_once_scrolled_into_view
+    # el1 = driver.find_element(By.XPATH, "//button[@rel='next']").location_once_scrolled_into_view
     action.move_to_element(driver.find_element(By.XPATH, "//button[@rel='next']")).perform()
     driver.find_element(By.XPATH, "//button[@rel='next']").click()
     print(len(driver.find_elements(By.TAG_NAME, "h2")))
     sleep(0.5)
 
     for i in range(4):
-        el2 = driver.find_element(By.XPATH, "//button[@rel='next']").location_once_scrolled_into_view
+        # el2 = driver.find_element(By.XPATH, "//button[@rel='next']").location_once_scrolled_into_view
         action.move_to_element(driver.find_element(By.XPATH, "//button[@rel='next']")).perform()
         driver.find_element(By.XPATH, "//button[@rel='next']").click()
         sleep(1)
@@ -79,6 +70,7 @@ def SendFirstPosition():
     driver.execute_script("arguments[0].click();", driver.find_element(By.XPATH,
                                                                        "//div[@class='job']/div[3]/div/button"))
     SendCV()
+    sleep(3)
 
 
 def SendCV():
@@ -90,13 +82,16 @@ def SendCV():
         "C:\\Users\\serge\\OneDrive\\Desktop\\סרגיי טשרניחובסקי - בודק תוכנה .pdf")
     if driver.page_source.find("סרגיי טשרניחובסקי - בודק תוכנה .pdf"):
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
-        print("CV sent status: Successful")
 
 
 # Testing flow of logon send CV automation
 if __name__ == '__main__':
     OpenAndSearch()
     SendFirstPosition()
+    assert "קורות החיים התקבלו בהצלחה!" in driver.page_source
+    print("CV sent status: Successful")
+
+    # region
     # ShowAllPositions()
     # TODO: After send CV to the first position, add loop in range len(of expanded positions) for others too
     #############################################################################################
@@ -122,7 +117,7 @@ if __name__ == '__main__':
     # sleep(3)
     # '''Upload CV'''
     # send_list = driver.find_elements(By.XPATH,
-    #                                  "//button[@type='button' and @class='button-lo send-your-cv']//ancestor::button[1]")
+    #                             "//button[@type='button' and @class='button-lo send-your-cv']//ancestor::button[1]")
     # send_list[0].click()
     # driver.find_element(By.XPATH,
     #                     "//button[@type='button' and @class='button-lo send-your-cv']//ancestor::button[1]").click()
@@ -136,3 +131,4 @@ if __name__ == '__main__':
     #     "C:\\Users\\serge\\OneDrive\\Desktop\\סרגיי טשרניחובסקי - בודק תוכנה .pdf")
     # if driver.page_source.find("סרגיי טשרניחובסקי - בודק תוכנה .pdf"):
     #     driver.find_element(By.XPATH, "//button[@type='submit']").click()
+    # endregion

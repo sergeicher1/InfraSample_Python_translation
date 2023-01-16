@@ -62,7 +62,9 @@ for i in data:
 # @pytest.mark.usefixtures("InitDBConnection")  # Uncomment for SQL
 class Test_Web:
     def test_Sample(self):
-        assert 1 == 10
+        # file_path = r"C:\Users\serge\OneDrive\Desktop\CV amir kliper\סרגיי טשרניחובסקי - בודק תוכנה .pdf"
+        # WebFlows.SendCVLogOnSite(file_path)
+        pass
 
     @pytest.mark.skip("Skipped to save time")
     @allure.title("Test Case 01: Valid Login Flow")

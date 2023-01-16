@@ -25,6 +25,7 @@
 #         UiActions.UpdateText(ManagePages.loginPage.GetPasswordField(), password)
 #         UiActions.Click(ManagePages.loginPage.GetLoginBtn())
 # ------------------------------------------------------------------------------------------------
+import allure
 
 from CompanyPackage.TestCases import conftest
 from Extensions.webdriver import *
@@ -78,3 +79,8 @@ class WebFlows:
         actual = manage_pages.home_page.GetLastComment().text
         expected = str(value)
         Verifications.VerifyEquals(actual=actual, expected=expected)
+
+    # @staticmethod
+    # @allure.step("Send CV Log-on site")
+    # def SendCVLogOnSite(value: str):
+    #     WebDriver.NavigateToPage("https://b.log-on.com/")

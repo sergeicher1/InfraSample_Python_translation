@@ -8,12 +8,15 @@ Browser, URL, filepath, etc.-->
     <ScreenshotPath>./Allure-Screenshots/</ScreenshotPath> <!--can be changed, the folder must exist-->
     <CSVLocation>./../../DDTesting/data.csv</CSVLocation> <!--can be changed, the folder must exist-->
 
+    <!--Base URL-->
+    <URL>https://www.google.com/</URL>
+
 
     <!--Web : Uncomment browser you need-->
-    <URL>https://www.google.com/</URL> <!--Base URL-->
     <Browser>Chrome</Browser>
-<!--    <Browser>FIREFOX</Browser>-->
-<!--    <Browser>EDGE</Browser>-->
+    <!--    <Browser>FIREFOX</Browser>-->
+    <!--    <Browser>EDGE</Browser>-->
+
 
     <!--Web options-->
     <ChromeOptions>ENABLED</ChromeOptions> <!--ENABLED/DISABLED-->
