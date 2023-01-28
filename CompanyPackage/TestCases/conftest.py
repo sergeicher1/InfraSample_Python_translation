@@ -172,7 +172,7 @@ def InitMySqlDBConnection(request):  # Open session
 
 # This is exception for API test
 # If it is None -> Screenshot will not be captured, because no browser is opened!
-def pytest_exception_interact(report):  # TODO: see if remove node and call
+def pytest_exception_interact(report):
     if report.failed:
         if globals()["driver"] is not None:
             d = datetime.now()
