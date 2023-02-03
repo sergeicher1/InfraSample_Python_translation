@@ -26,5 +26,8 @@ chrome_options.add_argument("--start-maximized")
 driver = webdriver.Chrome(options=chrome_options, service=ChromeService(ChromeDriverManager().install()))
 action = ActionChains(driver)
 
-if __name__ == '__main__':
+# path of the PDF file
+# path = open('C:\\Users\\serge\\OneDrive\\Desktop\\1.pdf', 'rb')
+
+if __name__ == "__main__":
     pass

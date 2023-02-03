@@ -77,7 +77,7 @@ class WebDriver:
     @staticmethod
     @allure.step("Execute ScrollDown JS Script")
     def ScrollDown(value1: int, value2: int):
-        conftest.driver.execute_script(f"window.scrollTo({value1},{value2})")
+        conftest.driver.execute_script(f"window.scrollTo({value1},{value2});")
 
     # The simplest of these is referred to as an alert, which shows a custom message,
     # and a single button which dismisses the alert, labelled in most browsers as OK

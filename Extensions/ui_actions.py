@@ -39,7 +39,17 @@ class UiActions:
 
     @staticmethod
     @allure.step("Mouse hover")
-    def MouseHover(elem1: WebElement, elem2: WebElement):
+    def MouseHover(elem1: WebElement):
+        action.move_to_element(elem1).perform()
+
+    @staticmethod
+    @allure.step("Mouse hover and click one element")
+    def MouseHoverAndClickOneElement(elem1: WebElement):
+        action.move_to_element(elem1).click().perform()
+
+    @staticmethod
+    @allure.step("Mouse hover and click the second element")
+    def MouseHoverAndClickSecondElement(elem1: WebElement, elem2: WebElement):
         action.move_to_element(elem1).move_to_element(elem2).click().perform()
 
     @staticmethod
@@ -51,13 +61,8 @@ class UiActions:
     @allure.step("Drag And Drop")
     def DragAndDrop(elem1: WebElement, elem2: WebElement):
         action.drag_and_drop(elem1, elem2).perform()
-############################################################################
+    ############################################################################
 
-# continue from here implementing as needed
+    # continue from here implementing as needed
 
-
-
-
-
-
-############################################################################
+    ############################################################################
