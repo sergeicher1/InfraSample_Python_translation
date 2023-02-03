@@ -1,4 +1,3 @@
-# TODO:  make automation on CV runner: https://www.jobkarov.com/CV/Send-Resume/
 # ------------------------------------------------------------------------------------------------
 # -- coding                                   | utf-8
 # -- Author                                   | Sergei Chernyahovsky
@@ -221,7 +220,7 @@ def FourthExecution():
 
 #  flow of send CV automation
 if __name__ == '__main__':
-    # TODO: Check what is wrong
+
     StartBrowser()
     FirstExecution()
     SecondExecution()
